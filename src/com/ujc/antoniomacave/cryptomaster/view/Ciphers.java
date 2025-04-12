@@ -6,6 +6,7 @@
 package com.ujc.antoniomacave.cryptomaster.view;
 
 import com.ujc.antoniomacave.cryptomaster.controller.CipherController;
+import com.ujc.antoniomacave.cryptomaster.util.Identifier;
 import javax.swing.JFrame;
 
 /**
@@ -17,14 +18,14 @@ public class Ciphers extends javax.swing.JFrame {
     /**
      * Creates new form Ciphers
      */
-    public Ciphers() {
+    public Ciphers(String cipher) {
         initComponents();
-        startApp();
+        startApp(cipher);
     }
     
-    private void startApp() {
+    private void startApp(String cipher) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("Cifras");
+        setTitle(cipher);
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -151,7 +152,7 @@ public class Ciphers extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCeaserCipherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCeaserCipherActionPerformed
-        CifraCesar cifraCesar = new CifraCesar("Ceaser");
+        CifraCesar cifraCesar = new CifraCesar(Identifier.CEASER_CIPHER);
         CipherController cipherController = new CipherController(cifraCesar);
         dispose();
     }//GEN-LAST:event_btnCeaserCipherActionPerformed
@@ -188,9 +189,9 @@ public class Ciphers extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
+        /*java.awt.EventQueue.invokeLater(() -> {
             new Ciphers().setVisible(true);
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

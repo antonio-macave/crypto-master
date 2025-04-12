@@ -23,7 +23,7 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Ciphers ciphers = new Ciphers();
+        Ciphers ciphers = new Ciphers("Cifras");
     }
     
 }
