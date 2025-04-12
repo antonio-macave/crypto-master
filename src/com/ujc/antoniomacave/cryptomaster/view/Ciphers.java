@@ -39,9 +39,9 @@ public class Ciphers extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnHillCipher = new javax.swing.JButton();
+        btnCeaserCipher = new javax.swing.JButton();
+        btnVigenereCipher = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,12 +52,17 @@ public class Ciphers extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cifrar mensagens é uma das técnicas para que haja uma comunicação segura.");
 
-        jButton1.setLabel("Hill");
-        jButton1.setMargin(new java.awt.Insets(2, 30, 2, 30));
+        btnHillCipher.setLabel("Hill");
+        btnHillCipher.setMargin(new java.awt.Insets(2, 30, 2, 30));
 
-        jButton2.setText("César");
+        btnCeaserCipher.setText("César");
+        btnCeaserCipher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCeaserCipherActionPerformed(evt);
+            }
+        });
 
-        jButton3.setLabel("Vigenère");
+        btnVigenereCipher.setLabel("Vigenère");
 
         jLabel2.setText("Escolha uma das cifras abaixo:");
 
@@ -67,11 +72,11 @@ public class Ciphers extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnCeaserCipher)
                 .addGap(73, 73, 73)
-                .addComponent(jButton1)
+                .addComponent(btnHillCipher)
                 .addGap(79, 79, 79)
-                .addComponent(jButton3)
+                .addComponent(btnVigenereCipher)
                 .addGap(91, 91, 91))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,14 +97,18 @@ public class Ciphers extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(btnHillCipher)
+                    .addComponent(btnCeaserCipher)
+                    .addComponent(btnVigenereCipher))
                 .addGap(108, 108, 108))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCeaserCipherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCeaserCipherActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCeaserCipherActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,9 +144,9 @@ public class Ciphers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnCeaserCipher;
+    private javax.swing.JButton btnHillCipher;
+    private javax.swing.JButton btnVigenereCipher;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
