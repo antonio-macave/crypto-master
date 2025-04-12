@@ -5,6 +5,8 @@
  */
 package com.ujc.antoniomacave.cryptomaster;
 
+import com.ujc.antoniomacave.cryptomaster.view.Ciphers;
+
 /**
  *
  * @author Macave
@@ -15,7 +17,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        Ciphers ciphers = new Ciphers();
     }
     
 }
