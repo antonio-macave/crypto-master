@@ -5,7 +5,9 @@
  */
 package com.ujc.antoniomacave.cryptomaster;
 
+import com.formdev.flatlaf.FlatLightLaf;
 import com.ujc.antoniomacave.cryptomaster.view.Ciphers;
+import javax.swing.UIManager;
 
 /**
  *
@@ -13,10 +15,14 @@ import com.ujc.antoniomacave.cryptomaster.view.Ciphers;
  */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String[] args) {
+        try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+            UIManager.put("Button.arc", 20);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         Ciphers ciphers = new Ciphers();
     }
     
