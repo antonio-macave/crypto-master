@@ -13,7 +13,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 
 /**
  *
@@ -24,8 +26,11 @@ public class CipherController {
     private final CifraCesar cifraCesarView;
     private Integer actionMode = null; // 0 = Encrypt; 1 = Decrypt
     
-    private JRadioButton encrp;
-    private JRadioButton decrp;
+    private int key;
+    
+    private JRadioButton encryptRadio;
+    private JRadioButton decryptRadio;
+    private JTextField keyTextArea;
     
     public CipherController(CifraCesar cifraCesarView) {
         this.cifraCesarView = cifraCesarView;
@@ -38,10 +43,12 @@ public class CipherController {
             String text = cifraCesarView.getBtnCopy().getText();
             copyText(text);
         });
-        encrp = cifraCesarView.getRadioEncypt();
-        decrp = cifraCesarView.getRadioDecrypt();
-        encrp.addActionListener(radioListener);
-        decrp.addActionListener(radioListener);
+        keyTextArea = cifraCesarView.getKey();
+        encryptRadio = cifraCesarView.getRadioEncypt();
+        decryptRadio = cifraCesarView.getRadioDecrypt();
+        encryptRadio.addActionListener(radioListener);
+        decryptRadio.addActionListener(radioListener);
+        cifraCesarView.getBtnEncrypt().addActionListener(encryptListener);
     }
     
     private void copyText(String text) {
@@ -50,6 +57,25 @@ public class CipherController {
         clipboard.setContents(stringSelection, null);
     }
     
+    private boolean isKeyValid(String text) throws NumberFormatException {
+        try {
+            if (!text.isEmpty()) {
+                int shift = Integer.parseInt(text);
+                if ((shift >= 0) && (shift <= 26)) {
+                    key = Integer.parseInt(text.trim());
+                    return true;
+                } else {
+                    JOptionPane.showMessageDialog(this.cifraCesarView, "A chave deve ser entre 0-26.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(this.cifraCesarView, "Insira a chave.");
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this.cifraCesarView, "A chave deve ser composta apenas por números.");
+        }
+        return false;
+    }
     
     private void enterEncryptMode() {
         actionMode = 0;
@@ -60,9 +86,7 @@ public class CipherController {
         btnEncrypt.setText("Encriptar");
         plainText.setText("Texto plano");
         cipherText.setText("Texto cifrado");
-        
-        System.out.println("Encrypt mode");
-        
+   
     }
     
     private void enterDecryptMode() {
@@ -76,12 +100,16 @@ public class CipherController {
         cipherText.setText("Texto plano");
     }
     
+    private final ActionListener encryptListener = (ActionEvent e) -> {
+        isKeyValid(keyTextArea.getText());
+    };
+    
     private final ActionListener radioListener = (ActionEvent e) -> {
-        if (e.getActionCommand().equals(encrp.getActionCommand())){
+        if (e.getActionCommand().equals(encryptRadio.getActionCommand())){
             enterEncryptMode();
-        } else if (e.getActionCommand().equals(decrp.getActionCommand())) {
+        } else if (e.getActionCommand().equals(decryptRadio.getActionCommand())) {
             enterDecryptMode();
         }
     };
-    
+ 
 }
