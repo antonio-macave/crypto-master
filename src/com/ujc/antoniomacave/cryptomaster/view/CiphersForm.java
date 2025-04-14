@@ -5,7 +5,7 @@
  */
 package com.ujc.antoniomacave.cryptomaster.view;
 
-import com.ujc.antoniomacave.cryptomaster.controller.CipherController;
+import com.ujc.antoniomacave.cryptomaster.controller.CeaserCipherController;
 import com.ujc.antoniomacave.cryptomaster.util.Identifier;
 import javax.swing.JFrame;
 
@@ -13,12 +13,12 @@ import javax.swing.JFrame;
  *
  * @author Macave
  */
-public class Ciphers extends javax.swing.JFrame {
+public class CiphersForm extends javax.swing.JFrame {
 
     /**
      * Creates new form Ciphers
      */
-    public Ciphers(String cipher) {
+    public CiphersForm(String cipher) {
         initComponents();
         startApp(cipher);
     }
@@ -58,7 +58,7 @@ public class Ciphers extends javax.swing.JFrame {
         });
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("<html><div style='text-align: center; vertical-align: middle;'>A criptografia de mensagens é uma das estratégias mais seguras para preservar a <b>confidencialidade</b> na troca de dados.</html>");
+        jLabel1.setText("<html><div style='text-align: center; vertical-align: middle;'>A criptografia de mensagens é uma das estratégias mais seguras para preservar a <b><i>confidencialidade</i></b> na troca de dados.</html>");
 
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true));
 
@@ -116,7 +116,7 @@ public class Ciphers extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel3.setText("António Macave, UJC- 3º ano (Pós-Laboral)");
+        jLabel3.setText("António Macave, UJC - 3º ano (Pós-Laboral)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -129,12 +129,10 @@ public class Ciphers extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(21, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,8 +150,8 @@ public class Ciphers extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCeaserCipherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCeaserCipherActionPerformed
-        CifraCesar cifraCesar = new CifraCesar(Identifier.CEASER_CIPHER);
-        CipherController cipherController = new CipherController(cifraCesar);
+        CifraCesarForm cifraCesar = new CifraCesarForm(Identifier.CEASER_CIPHER);
+        CeaserCipherController cipherController = new CeaserCipherController(cifraCesar);
         dispose();
     }//GEN-LAST:event_btnCeaserCipherActionPerformed
 
@@ -178,14 +176,19 @@ public class Ciphers extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ciphers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CiphersForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ciphers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CiphersForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ciphers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CiphersForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ciphers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CiphersForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+
+        /* Create and display the form */
+        /*java.awt.EventQueue.invokeLater(() -> {
+            new Ciphers().setVisible(true);
         //</editor-fold>
 
         /* Create and display the form */

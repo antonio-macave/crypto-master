@@ -5,7 +5,7 @@
  */
 package com.ujc.antoniomacave.cryptomaster.controller;
 
-import com.ujc.antoniomacave.cryptomaster.view.CifraCesar;
+import com.ujc.antoniomacave.cryptomaster.view.CifraCesarForm;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
@@ -21,9 +21,9 @@ import javax.swing.JTextField;
  *
  * @author Macave
  */
-public class CipherController {
+public class CeaserCipherController {
     
-    private final CifraCesar cifraCesarView;
+    private final CifraCesarForm cifraCesarView;
     private Integer actionMode = null; // 0 = Encrypt; 1 = Decrypt
     
     private int key;
@@ -32,7 +32,7 @@ public class CipherController {
     private JRadioButton decryptRadio;
     private JTextField keyTextArea;
     
-    public CipherController(CifraCesar cifraCesarView) {
+    public CeaserCipherController(CifraCesarForm cifraCesarView) {
         this.cifraCesarView = cifraCesarView;
         setListeners();
     }
