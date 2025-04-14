@@ -5,9 +5,10 @@
  */
 package com.ujc.antoniomacave.cryptomaster.view;
 
-import com.ujc.antoniomacave.cryptomaster.controller.CeaserCipherController;
-import com.ujc.antoniomacave.cryptomaster.util.Identifier;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -51,11 +52,6 @@ public class CiphersForm extends javax.swing.JFrame {
         setTitle("Cifras");
         setResizable(false);
         setSize(new java.awt.Dimension(500, 500));
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
-        });
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html><div style='text-align: center; vertical-align: middle;'>A criptografia de mensagens é uma das estratégias mais seguras para preservar a <b><i>confidencialidade</i></b> na troca de dados.</html>");
@@ -66,11 +62,6 @@ public class CiphersForm extends javax.swing.JFrame {
 
         btnCeaserCipher.setText("César");
         btnCeaserCipher.setRequestFocusEnabled(false);
-        btnCeaserCipher.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCeaserCipherActionPerformed(evt);
-            }
-        });
 
         btnHillCipher.setLabel("Hill");
         btnHillCipher.setMargin(new java.awt.Insets(2, 30, 2, 30));
@@ -149,16 +140,6 @@ public class CiphersForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCeaserCipherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCeaserCipherActionPerformed
-        CifraCesarForm cifraCesar = new CifraCesarForm(Identifier.CEASER_CIPHER);
-        CeaserCipherController cipherController = new CeaserCipherController(cifraCesar);
-        dispose();
-    }//GEN-LAST:event_btnCeaserCipherActionPerformed
-
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        // TODO add your handling code here:
-    }//GEN-LAST:event_formWindowClosing
-
     /**
      * @param args the command line arguments
      */
@@ -195,6 +176,62 @@ public class CiphersForm extends javax.swing.JFrame {
         /*java.awt.EventQueue.invokeLater(() -> {
             new Ciphers().setVisible(true);
         });*/
+    }
+
+    public JButton getBtnCeaserCipher() {
+        return btnCeaserCipher;
+    }
+
+    public void setBtnCeaserCipher(JButton btnCeaserCipher) {
+        this.btnCeaserCipher = btnCeaserCipher;
+    }
+
+    public JButton getBtnHillCipher() {
+        return btnHillCipher;
+    }
+
+    public void setBtnHillCipher(JButton btnHillCipher) {
+        this.btnHillCipher = btnHillCipher;
+    }
+
+    public JButton getBtnVigenereCipher() {
+        return btnVigenereCipher;
+    }
+
+    public void setBtnVigenereCipher(JButton btnVigenereCipher) {
+        this.btnVigenereCipher = btnVigenereCipher;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
