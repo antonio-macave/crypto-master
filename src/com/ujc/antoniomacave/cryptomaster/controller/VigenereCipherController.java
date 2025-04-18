@@ -52,6 +52,11 @@ public class VigenereCipherController {
         encryptRadio = form.getRadioEncrypt();
         decryptRadio = form.getRadioDecrypt();
         btnCopy = form.getBtnCopy();
+        btnCopy.addActionListener((ActionEvent e) -> {
+            if (!outputField.getText().trim().isEmpty()) {
+                copyText(outputField.getText());
+            }
+        });
         btnEncrypt = form.getBtnEncrypt();
         
         encryptRadio.addActionListener(actionListener);
@@ -77,15 +82,11 @@ public class VigenereCipherController {
         StringUtils.copyText(text);
     }
     
-    private final ActionListener actionListener = new ActionListener() {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            if (e.getActionCommand().equals(encryptRadio.getActionCommand())) {
-                setEncryptMode();
-            } else if (e.getActionCommand().equals(decryptRadio.getActionCommand())){
-                setDecryptMode();
-            }
+    private final ActionListener actionListener = (ActionEvent e) -> {
+        if (e.getActionCommand().equals(encryptRadio.getActionCommand())) {
+            setEncryptMode();
+        } else if (e.getActionCommand().equals(decryptRadio.getActionCommand())){
+            setDecryptMode();
         }
     };
     
