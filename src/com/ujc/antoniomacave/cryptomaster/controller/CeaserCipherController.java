@@ -6,11 +6,14 @@
 package com.ujc.antoniomacave.cryptomaster.controller;
 
 import com.ujc.antoniomacave.cryptomaster.view.CifraCesarForm;
+import com.ujc.antoniomacave.cryptomaster.view.CiphersForm;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -38,6 +41,7 @@ public class CeaserCipherController {
     }
     
     private void setListeners() {
+        cifraCesarView.addWindowListener(windowListener);
         cifraCesarView.getBtnCopy().setEnabled(true);
         cifraCesarView.getBtnCopy().addActionListener((ActionEvent e) -> {
             String text = cifraCesarView.getBtnCopy().getText();
@@ -112,4 +116,42 @@ public class CeaserCipherController {
         }
     };
  
+    private final WindowListener windowListener = new WindowListener() {
+
+        @Override
+        public void windowOpened(WindowEvent e) {
+            
+        }
+
+        @Override
+        public void windowClosing(WindowEvent e) {
+            
+        }
+
+        @Override
+        public void windowClosed(WindowEvent e) {
+            CiphersForm ciphersForm = new CiphersForm("Cifras");
+            CiphersController controller = new CiphersController(ciphersForm);
+        }
+
+        @Override
+        public void windowIconified(WindowEvent e) {
+            
+        }
+
+        @Override
+        public void windowDeiconified(WindowEvent e) {
+            
+        }
+
+        @Override
+        public void windowActivated(WindowEvent e) {
+            
+        }
+
+        @Override
+        public void windowDeactivated(WindowEvent e) {
+            
+        }
+    };
 }

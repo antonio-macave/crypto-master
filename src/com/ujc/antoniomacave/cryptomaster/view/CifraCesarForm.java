@@ -158,7 +158,7 @@ public class CifraCesarForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        new CiphersForm("Cifras");
+        
     }//GEN-LAST:event_formWindowClosing
 
     /**
