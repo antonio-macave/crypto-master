@@ -5,6 +5,9 @@
  */
 package com.ujc.antoniomacave.cryptomaster.view;
 
+import com.ujc.antoniomacave.cryptomaster.util.Identifier;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Macave
@@ -16,8 +19,17 @@ public class VigenereForm extends javax.swing.JFrame {
      */
     public VigenereForm() {
         initComponents();
+        startApp(Identifier.VIGENERE_CIPHER);
     }
 
+    private void startApp(String windowTitle) {
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setTitle(windowTitle);
+        setResizable(false);
+        setVisible(true);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,6 +43,15 @@ public class VigenereForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         radioEncrypt = new javax.swing.JRadioButton();
         radioDecrypt = new javax.swing.JRadioButton();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        labelInput = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        inputTextField = new javax.swing.JTextArea();
+        btnEncrypt = new javax.swing.JButton();
+        outputLabel = new javax.swing.JLabel();
+        outputTxtField = new javax.swing.JTextField();
+        btnCopy = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,17 +63,42 @@ public class VigenereForm extends javax.swing.JFrame {
         buttonGroup1.add(radioDecrypt);
         radioDecrypt.setText("Desincriptar");
 
+        jLabel2.setText("Chave");
+
+        labelInput.setText("Texto plano");
+
+        inputTextField.setColumns(20);
+        inputTextField.setRows(5);
+        jScrollPane1.setViewportView(inputTextField);
+
+        btnEncrypt.setText("Encriptar");
+
+        outputLabel.setText("Texto cifrado");
+
+        outputTxtField.setEditable(false);
+
+        btnCopy.setText("Copiar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(radioEncrypt)
-                    .addComponent(jLabel1)
-                    .addComponent(radioDecrypt))
-                .addContainerGap(396, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnCopy)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(outputTxtField)
+                        .addComponent(btnEncrypt, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(labelInput)
+                        .addComponent(jLabel2)
+                        .addComponent(radioEncrypt)
+                        .addComponent(jLabel1)
+                        .addComponent(radioDecrypt)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
+                        .addComponent(outputLabel)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -63,7 +109,23 @@ public class VigenereForm extends javax.swing.JFrame {
                 .addComponent(radioEncrypt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(radioDecrypt)
-                .addContainerGap(442, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(labelInput)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEncrypt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(outputLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(outputTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCopy)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -97,16 +159,20 @@ public class VigenereForm extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VigenereForm().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCopy;
+    private javax.swing.JButton btnEncrypt;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JTextArea inputTextField;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel labelInput;
+    private javax.swing.JLabel outputLabel;
+    private javax.swing.JTextField outputTxtField;
     private javax.swing.JRadioButton radioDecrypt;
     private javax.swing.JRadioButton radioEncrypt;
     // End of variables declaration//GEN-END:variables
