@@ -17,6 +17,8 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -49,6 +51,7 @@ public class VigenereCipherController {
         keyField = form.getKeyField();
         inputField = form.getInputTextField();
         outputField = form.getOutputTxtField();
+        outputField.getDocument().addDocumentListener(documentListener);
         encryptRadio = form.getRadioEncrypt();
         decryptRadio = form.getRadioDecrypt();
         btnCopy = form.getBtnCopy();
@@ -87,6 +90,28 @@ public class VigenereCipherController {
             setEncryptMode();
         } else if (e.getActionCommand().equals(decryptRadio.getActionCommand())){
             setDecryptMode();
+        }
+    };
+    
+    private final DocumentListener documentListener = new DocumentListener() {
+
+        private void updateCopyButtonState() {
+            btnCopy.setEnabled(!inputField.getText().trim().isEmpty());
+        }
+        
+        @Override
+        public void insertUpdate(DocumentEvent e) {
+            updateCopyButtonState();
+        }
+
+        @Override
+        public void removeUpdate(DocumentEvent e) {
+            updateCopyButtonState();
+        }
+
+        @Override
+        public void changedUpdate(DocumentEvent e) {
+            updateCopyButtonState();
         }
     };
     
