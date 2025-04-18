@@ -7,6 +7,7 @@ package com.ujc.antoniomacave.cryptomaster;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import com.ujc.antoniomacave.cryptomaster.controller.CiphersController;
+import com.ujc.antoniomacave.cryptomaster.util.Identifier;
 import com.ujc.antoniomacave.cryptomaster.view.CiphersForm;
 import javax.swing.UIManager;
 
@@ -24,7 +25,7 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        CiphersForm ciphers = new CiphersForm("Cifras");
+        CiphersForm ciphers = new CiphersForm(Identifier.APP_TITLE);
         CiphersController ciphersController = new CiphersController(ciphers);
     }
     

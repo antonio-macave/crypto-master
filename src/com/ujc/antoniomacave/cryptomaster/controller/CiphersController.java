@@ -51,18 +51,14 @@ public class CiphersController {
         ciphersFormView.dispose();
     }
     
-    private final ActionListener actionListener = new ActionListener() {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            if (ciphersFormView != null) {
-               if (btnCeaser.getActionCommand().equals(e.getActionCommand())) {
-                   openCeaserCipherForm();
-               } else if (e.getActionCommand().equals(btnHill.getActionCommand())) {
-                   
-               } else if (e.getActionCommand().equals(btnVigenere.getActionCommand())) {
-                   openVigenereCipherForm();
-               }   
+    private final ActionListener actionListener = (ActionEvent e) -> {
+        if (ciphersFormView != null) {
+            if (btnCeaser.getActionCommand().equals(e.getActionCommand())) {
+                openCeaserCipherForm();
+            } else if (e.getActionCommand().equals(btnHill.getActionCommand())) {
+                
+            } else if (e.getActionCommand().equals(btnVigenere.getActionCommand())) {
+                openVigenereCipherForm();   
             }
         }
     };

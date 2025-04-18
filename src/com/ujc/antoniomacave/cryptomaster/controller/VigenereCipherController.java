@@ -5,6 +5,7 @@
  */
 package com.ujc.antoniomacave.cryptomaster.controller;
 
+import com.ujc.antoniomacave.cryptomaster.util.Identifier;
 import com.ujc.antoniomacave.cryptomaster.util.StringUtils;
 import com.ujc.antoniomacave.cryptomaster.view.CiphersForm;
 import com.ujc.antoniomacave.cryptomaster.view.VigenereForm;
@@ -156,7 +157,7 @@ public class VigenereCipherController {
 
         @Override
         public void windowClosed(WindowEvent e) {
-            CiphersForm ciphersForm = new CiphersForm("Cifras");
+            CiphersForm ciphersForm = new CiphersForm(Identifier.APP_TITLE);
             CiphersController ciphersController = new CiphersController(ciphersForm);
         }
 

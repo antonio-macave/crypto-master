@@ -49,7 +49,7 @@ public class CiphersForm extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cifras");
+        setTitle("Crypto Master - 3 Cifras");
         setResizable(false);
         setSize(new java.awt.Dimension(500, 500));
 
