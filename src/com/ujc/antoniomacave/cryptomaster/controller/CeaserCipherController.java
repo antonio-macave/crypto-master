@@ -5,11 +5,9 @@
  */
 package com.ujc.antoniomacave.cryptomaster.controller;
 
+import com.ujc.antoniomacave.cryptomaster.util.StringUtils;
 import com.ujc.antoniomacave.cryptomaster.view.CifraCesarForm;
 import com.ujc.antoniomacave.cryptomaster.view.CiphersForm;
-import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -56,9 +54,7 @@ public class CeaserCipherController {
     }
     
     private void copyText(String text) {
-        StringSelection stringSelection = new StringSelection(text);
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.setContents(stringSelection, null);
+        StringUtils.copyText(text);
     }
     
     private boolean isKeyValid(String text) throws NumberFormatException {

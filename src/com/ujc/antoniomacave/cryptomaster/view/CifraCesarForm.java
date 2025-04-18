@@ -47,12 +47,12 @@ public class CifraCesarForm extends javax.swing.JFrame {
 
         radioButtonGroup = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
-        plainTexField = new javax.swing.JTextArea();
+        inputTextField = new javax.swing.JTextArea();
         labelPlainText = new javax.swing.JLabel();
         key = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        cipherTextArea = new javax.swing.JTextArea();
+        outputTextField = new javax.swing.JTextArea();
         labelCipherText = new javax.swing.JLabel();
         radioEncypt = new javax.swing.JRadioButton();
         radioDecrypt = new javax.swing.JRadioButton();
@@ -67,10 +67,10 @@ public class CifraCesarForm extends javax.swing.JFrame {
             }
         });
 
-        plainTexField.setColumns(20);
-        plainTexField.setRows(5);
-        plainTexField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jScrollPane1.setViewportView(plainTexField);
+        inputTextField.setColumns(20);
+        inputTextField.setRows(5);
+        inputTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jScrollPane1.setViewportView(inputTextField);
 
         labelPlainText.setText("Texto plano");
 
@@ -78,10 +78,10 @@ public class CifraCesarForm extends javax.swing.JFrame {
 
         jLabel2.setText("Chave");
 
-        cipherTextArea.setEditable(false);
-        cipherTextArea.setColumns(20);
-        cipherTextArea.setRows(5);
-        jScrollPane2.setViewportView(cipherTextArea);
+        outputTextField.setEditable(false);
+        outputTextField.setColumns(20);
+        outputTextField.setRows(5);
+        jScrollPane2.setViewportView(outputTextField);
 
         labelCipherText.setText("Texto cifrado");
 
@@ -208,7 +208,7 @@ public class CifraCesarForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCopy;
     private javax.swing.JButton btnEncrypt;
-    private javax.swing.JTextArea cipherTextArea;
+    private javax.swing.JTextArea inputTextField;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
@@ -216,7 +216,7 @@ public class CifraCesarForm extends javax.swing.JFrame {
     private javax.swing.JTextField key;
     private javax.swing.JLabel labelCipherText;
     private javax.swing.JLabel labelPlainText;
-    private javax.swing.JTextArea plainTexField;
+    private javax.swing.JTextArea outputTextField;
     private javax.swing.ButtonGroup radioButtonGroup;
     private javax.swing.JRadioButton radioDecrypt;
     private javax.swing.JRadioButton radioEncypt;
@@ -279,11 +279,11 @@ public class CifraCesarForm extends javax.swing.JFrame {
     }
 
     public JTextArea getCipherTextArea() {
-        return cipherTextArea;
+        return outputTextField;
     }
 
     public void setjTextArea1(JTextArea cipherTextArea) {
-        this.cipherTextArea = cipherTextArea;
+        this.outputTextField = cipherTextArea;
     }
 
     public JTextField getKey() {
@@ -295,11 +295,11 @@ public class CifraCesarForm extends javax.swing.JFrame {
     }
 
     public JTextArea getPlainTexField() {
-        return plainTexField;
+        return inputTextField;
     }
 
     public void setPlainTexField(JTextArea plainTexField) {
-        this.plainTexField = plainTexField;
+        this.inputTextField = plainTexField;
     }
 
     public JRadioButton getRadioDecrypt() {
