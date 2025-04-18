@@ -6,7 +6,14 @@
 package com.ujc.antoniomacave.cryptomaster.view;
 
 import com.ujc.antoniomacave.cryptomaster.util.Identifier;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -43,15 +50,16 @@ public class VigenereForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         radioEncrypt = new javax.swing.JRadioButton();
         radioDecrypt = new javax.swing.JRadioButton();
-        jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        labelInput = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        inputTextField = new javax.swing.JTextArea();
+        inputLabel = new javax.swing.JLabel();
         btnEncrypt = new javax.swing.JButton();
         outputLabel = new javax.swing.JLabel();
-        outputTxtField = new javax.swing.JTextField();
         btnCopy = new javax.swing.JButton();
+        keyField = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        inputTextField = new javax.swing.JTextArea();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        outputTxtField = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,19 +73,23 @@ public class VigenereForm extends javax.swing.JFrame {
 
         jLabel2.setText("Chave");
 
-        labelInput.setText("Texto plano");
-
-        inputTextField.setColumns(20);
-        inputTextField.setRows(5);
-        jScrollPane1.setViewportView(inputTextField);
+        inputLabel.setText("Texto plano");
 
         btnEncrypt.setText("Encriptar");
 
         outputLabel.setText("Texto cifrado");
 
-        outputTxtField.setEditable(false);
-
         btnCopy.setText("Copiar");
+        btnCopy.setEnabled(false);
+
+        inputTextField.setColumns(20);
+        inputTextField.setRows(5);
+        jScrollPane2.setViewportView(inputTextField);
+
+        outputTxtField.setEditable(false);
+        outputTxtField.setColumns(20);
+        outputTxtField.setRows(5);
+        jScrollPane1.setViewportView(outputTxtField);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,19 +97,18 @@ public class VigenereForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnCopy)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(outputTxtField)
-                        .addComponent(btnEncrypt, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(labelInput)
-                        .addComponent(jLabel2)
-                        .addComponent(radioEncrypt)
-                        .addComponent(jLabel1)
-                        .addComponent(radioDecrypt)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
-                        .addComponent(outputLabel)))
+                    .addComponent(btnEncrypt)
+                    .addComponent(inputLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(radioEncrypt, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(radioDecrypt, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(outputLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(keyField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -112,18 +123,18 @@ public class VigenereForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(keyField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(labelInput)
+                .addComponent(inputLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEncrypt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(outputLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(outputTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCopy)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
@@ -161,18 +172,123 @@ public class VigenereForm extends javax.swing.JFrame {
         /* Create and display the form */
     }
 
+    public JButton getBtnCopy() {
+        return btnCopy;
+    }
+
+    public void setBtnCopy(JButton btnCopy) {
+        this.btnCopy = btnCopy;
+    }
+
+    public JButton getBtnEncrypt() {
+        return btnEncrypt;
+    }
+
+    public void setBtnEncrypt(JButton btnEncrypt) {
+        this.btnEncrypt = btnEncrypt;
+    }
+
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
+    }
+
+    public void setButtonGroup1(ButtonGroup buttonGroup1) {
+        this.buttonGroup1 = buttonGroup1;
+    }
+
+    public JLabel getInputLabel() {
+        return inputLabel;
+    }
+
+    public void setInputLabel(JLabel inputLabel) {
+        this.inputLabel = inputLabel;
+    }
+
+    public JTextArea getInputTextField() {
+        return inputTextField;
+    }
+
+    public void setInputTextField(JTextArea inputTextField) {
+        this.inputTextField = inputTextField;
+    }
+
+    public JTextArea getOutputTxtField() {
+        return outputTxtField;
+    }
+
+    public void setOutputTxtField(JTextArea outputTxtField) {
+        this.outputTxtField = outputTxtField;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JTextField getKeyField() {
+        return keyField;
+    }
+
+    public void setKeyField(JTextField keyField) {
+        this.keyField = keyField;
+    }
+
+    public JLabel getOutputLabel() {
+        return outputLabel;
+    }
+
+    public void setOutputLabel(JLabel outputLabel) {
+        this.outputLabel = outputLabel;
+    }
+
+    public JRadioButton getRadioDecrypt() {
+        return radioDecrypt;
+    }
+
+    public void setRadioDecrypt(JRadioButton radioDecrypt) {
+        this.radioDecrypt = radioDecrypt;
+    }
+
+    public JRadioButton getRadioEncrypt() {
+        return radioEncrypt;
+    }
+
+    public void setRadioEncrypt(JRadioButton radioEncrypt) {
+        this.radioEncrypt = radioEncrypt;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCopy;
     private javax.swing.JButton btnEncrypt;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel inputLabel;
     private javax.swing.JTextArea inputTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel labelInput;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField keyField;
     private javax.swing.JLabel outputLabel;
-    private javax.swing.JTextField outputTxtField;
+    private javax.swing.JTextArea outputTxtField;
     private javax.swing.JRadioButton radioDecrypt;
     private javax.swing.JRadioButton radioEncrypt;
     // End of variables declaration//GEN-END:variables
