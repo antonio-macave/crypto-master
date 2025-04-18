@@ -16,7 +16,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -32,6 +35,9 @@ public class CeaserCipherController {
     private JRadioButton encryptRadio;
     private JRadioButton decryptRadio;
     private JTextField keyTextArea;
+    private JTextArea inputField;
+    private JTextArea outputField;
+    private JButton copyButton;
     
     public CeaserCipherController(CifraCesarForm cifraCesarView) {
         this.cifraCesarView = cifraCesarView;
@@ -40,14 +46,17 @@ public class CeaserCipherController {
     
     private void setListeners() {
         cifraCesarView.addWindowListener(windowListener);
-        cifraCesarView.getBtnCopy().setEnabled(true);
-        cifraCesarView.getBtnCopy().addActionListener((ActionEvent e) -> {
-            String text = cifraCesarView.getBtnCopy().getText();
+        copyButton = cifraCesarView.getBtnCopy();
+        copyButton.addActionListener((ActionEvent e) -> {
+            String text = inputField.getText();
             copyText(text);
         });
         keyTextArea = cifraCesarView.getKey();
         encryptRadio = cifraCesarView.getRadioEncypt();
         decryptRadio = cifraCesarView.getRadioDecrypt();
+        inputField = cifraCesarView.getPlainTexField();
+        outputField = cifraCesarView.getCipherTextArea();
+        outputField.getDocument().addDocumentListener(docListener);
         encryptRadio.addActionListener(radioListener);
         decryptRadio.addActionListener(radioListener);
         cifraCesarView.getBtnEncrypt().addActionListener(encryptListener);
@@ -109,6 +118,28 @@ public class CeaserCipherController {
             enterEncryptMode();
         } else if (e.getActionCommand().equals(decryptRadio.getActionCommand())) {
             enterDecryptMode();
+        }
+    };
+    
+    private final DocumentListener docListener = new DocumentListener() {
+        
+        private void updateCopyButtonState() {
+            copyButton.setEnabled(!outputField.getText().trim().isEmpty());
+        }
+
+        @Override
+        public void insertUpdate(DocumentEvent e) {
+            updateCopyButtonState();
+        }
+
+        @Override
+        public void removeUpdate(DocumentEvent e) {
+            updateCopyButtonState();
+        }
+
+        @Override
+        public void changedUpdate(DocumentEvent e) {
+            updateCopyButtonState();
         }
     };
  
