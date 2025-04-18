@@ -104,7 +104,7 @@ public class CeaserCipherController {
         JLabel plainText = cifraCesarView.getPlainTexLabel();
         JLabel cipherText = cifraCesarView.getLabelCipherText();
         
-        btnEncrypt.setText("Desencriptar");
+        btnEncrypt.setText("Decriptar");
         plainText.setText("Texto cifrado");
         cipherText.setText("Texto plano");
     }
