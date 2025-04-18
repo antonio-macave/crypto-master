@@ -5,10 +5,15 @@
  */
 package com.ujc.antoniomacave.cryptomaster.controller;
 
+import com.ujc.antoniomacave.cryptomaster.util.StringUtils;
 import com.ujc.antoniomacave.cryptomaster.view.CiphersForm;
 import com.ujc.antoniomacave.cryptomaster.view.VigenereForm;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import javax.swing.JButton;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -16,15 +21,44 @@ import java.awt.event.WindowListener;
  */
 public class VigenereCipherController {
     
-    private VigenereForm vigenereFormView;
+    private Integer actionMode = null; // 0 = Encrypt; 1 = Decrypt 
+    private JTextField keyField;
+    private JTextArea inputField;
+    private JTextArea outputField;
+    private JButton btnEncrypt;
+    private JButton btnCopy;
+    private JRadioButton encryptRadio;
+    private JRadioButton decryptRadio;
+    
+    private final VigenereForm vigenereFormView;
     
     public VigenereCipherController(VigenereForm vigenereFormView) {
         this.vigenereFormView = vigenereFormView;
-        initComps();
+        initComps(vigenereFormView);
     }
     
-    private void initComps() {
-        vigenereFormView.addWindowListener(windowListener);
+    private void initComps(VigenereForm form) {
+        form.addWindowListener(windowListener);
+        keyField = form.getKeyField();
+        inputField = form.getInputTextField();
+        outputField = form.getOutputTxtField();
+        encryptRadio = form.getRadioEncrypt();
+        decryptRadio = form.getRadioDecrypt();
+        btnCopy = form.getBtnCopy();
+        btnEncrypt = form.getBtnEncrypt();
+    }
+    
+    
+    private void setEncryptMode() {
+        actionMode = 0;
+    }
+    
+    private void setDecryptMode() {
+        actionMode = 1;
+    }
+    
+    private void copyText(String text) {
+        StringUtils.copyText(text);
     }
     
     
