@@ -14,6 +14,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -61,7 +62,7 @@ public class VigenereCipherController {
             }
         });
         btnEncrypt = form.getBtnEncrypt();
-        
+        btnEncrypt.addActionListener(encyptListener);
         encryptRadio.addActionListener(actionListener);
         decryptRadio.addActionListener(actionListener);
     }
@@ -83,6 +84,32 @@ public class VigenereCipherController {
     
     private void copyText(String text) {
         StringUtils.copyText(text);
+    }
+    
+    private final ActionListener encyptListener = (ActionEvent e) -> {
+        String text = keyField.getText();
+        if (isKeyValid(text)) {
+            String content = inputField.getText();
+            if (hasInputContent(content)) {
+                
+            }
+        }
+    };
+    
+    private boolean isKeyValid(String text) {
+        if (text.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(vigenereFormView, "Por favor, insira a chave.");
+            return false;
+        }
+        return true;
+    }
+    
+    private boolean hasInputContent(String content) {
+        if (content.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(vigenereFormView, "Por favor, insira o texto que deseja cifrar/decifrar.");
+            return false;
+        }
+        return true;
     }
     
     private final ActionListener actionListener = (ActionEvent e) -> {
