@@ -69,7 +69,7 @@ public class VigenereForm extends javax.swing.JFrame {
         radioEncrypt.setText("Encriptar");
 
         buttonGroup1.add(radioDecrypt);
-        radioDecrypt.setText("Desincriptar");
+        radioDecrypt.setText("Decriptar");
 
         jLabel2.setText("Chave");
 

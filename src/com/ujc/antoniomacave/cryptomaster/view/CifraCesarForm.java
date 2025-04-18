@@ -89,7 +89,7 @@ public class CifraCesarForm extends javax.swing.JFrame {
         radioEncypt.setText("Encriptar");
 
         radioButtonGroup.add(radioDecrypt);
-        radioDecrypt.setText("Desincriptar");
+        radioDecrypt.setText("Decriptar");
 
         jLabel3.setText("O que deseja?");
 
