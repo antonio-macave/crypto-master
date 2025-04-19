@@ -89,11 +89,13 @@ public class VigenereCipherController {
     
     private final ActionListener encyptListener = (ActionEvent e) -> {
         String text = keyField.getText();
-        if (isKeyValid(text)) {
+        if (isAnyModeSelected()) {
+            if (isKeyValid(text)) {
             String content = inputField.getText();
             if (hasInputContent(content)) {
                 
             }
+        }
         }
     };
     
@@ -111,6 +113,15 @@ public class VigenereCipherController {
             return false;
         }
         return true;
+    }
+    
+    private boolean isAnyModeSelected() {
+        if(actionMode != null) {
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(vigenereFormView, "Por favor, selecione o que deseja fazer.");
+            return false;
+        }
     }
     
     private final ActionListener actionListener = (ActionEvent e) -> {

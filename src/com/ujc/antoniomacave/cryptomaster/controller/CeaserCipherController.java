@@ -111,8 +111,19 @@ public class CeaserCipherController {
     }
     
     private final ActionListener encryptListener = (ActionEvent e) -> {
-        isKeyValid(keyTextArea.getText());
+        if (isAnyModeSelected()) {
+            isKeyValid(keyTextArea.getText());
+        }
     };
+    
+    private boolean isAnyModeSelected() {
+        if(actionMode != null) {
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(cifraCesarView, "Por favor, selecione o que deseja fazer.");
+            return false;
+        }
+    }
     
     private final ActionListener radioListener = (ActionEvent e) -> {
         if (e.getActionCommand().equals(encryptRadio.getActionCommand())){
