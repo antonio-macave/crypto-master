@@ -6,6 +6,8 @@
 package com.ujc.antoniomacave.cryptomaster.controller;
 
 import com.ujc.antoniomacave.cryptomaster.view.HillForm;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
@@ -19,6 +21,7 @@ import javax.swing.JTextField;
 public class HillCipherController {
     
     private HillForm hillFormView;
+    private Integer actionMode = null; //0 = Encryption Mode; 1 = Decryption Mode
     
     private JLabel inputLabel;
     private JLabel outputLabel;
@@ -45,6 +48,31 @@ public class HillCipherController {
         radioDecrypt = form.getRadioDecrypt();
         btnEncypt = form.getBtnEncrypt();
         btnCopy = form.getBtnCopy();
+        
+        radioEncrypt.addActionListener(radioButtonsListener);
+        radioDecrypt.addActionListener(radioButtonsListener);
     }
+    
+    private void setEncyptionMode() {
+        actionMode = 0;
+        inputLabel.setText("Texto plano");
+        outputLabel.setText("Texto cifrado");
+        btnEncypt.setText("Encriptar");
+    }
+    
+    private void setDecyptionMode() {
+        actionMode = 1;
+        inputLabel.setText("Texto cifrado");
+        outputLabel.setText("Texto plano");
+        btnEncypt.setText("Decriptar");
+    }
+    
+    private final ActionListener radioButtonsListener = (ActionEvent e) -> {
+           if (e.getActionCommand().equals(radioEncrypt.getActionCommand())) {
+               setEncyptionMode();
+           } else if (e.getActionCommand().equals(radioDecrypt.getActionCommand())) {
+               setDecyptionMode();
+           }
+    };
     
 }
