@@ -36,7 +36,15 @@ public class HillCipherController {
     }
     
     private void initComps(HillForm form) {
-        
+        inputLabel = form.getInputLabel();
+        outputLabel = form.getOutputLabel();
+        keyField = form.getKeyField();
+        inputField = form.getInputField();
+        outputField = form.getOutputField();
+        radioEncrypt = form.getRadioEncrypt();
+        radioDecrypt = form.getRadioDecrypt();
+        btnEncypt = form.getBtnEncrypt();
+        btnCopy = form.getBtnCopy();
     }
     
 }

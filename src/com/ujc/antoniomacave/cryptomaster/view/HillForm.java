@@ -5,6 +5,14 @@
  */
 package com.ujc.antoniomacave.cryptomaster.view;
 
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Macave
@@ -159,6 +167,120 @@ public class HillForm extends javax.swing.JFrame {
             }
         });
     }
+
+    public JButton getBtnCopy() {
+        return btnCopy;
+    }
+
+    public void setBtnCopy(JButton btnCopy) {
+        this.btnCopy = btnCopy;
+    }
+
+    public JButton getBtnEncrypt() {
+        return btnEncrypt;
+    }
+
+    public void setBtnEncrypt(JButton btnEncrypt) {
+        this.btnEncrypt = btnEncrypt;
+    }
+
+    public ButtonGroup getButtonGroup1() {
+        return buttonGroup1;
+    }
+
+    public void setButtonGroup1(ButtonGroup buttonGroup1) {
+        this.buttonGroup1 = buttonGroup1;
+    }
+
+    public JTextArea getInputField() {
+        return inputField;
+    }
+
+    public void setInputField(JTextArea inputField) {
+        this.inputField = inputField;
+    }
+
+    public JLabel getInputLabel() {
+        return inputLabel;
+    }
+
+    public void setInputLabel(JLabel inputLabel) {
+        this.inputLabel = inputLabel;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public void setjScrollPane2(JScrollPane jScrollPane2) {
+        this.jScrollPane2 = jScrollPane2;
+    }
+
+    public JTextField getKeyField() {
+        return keyField;
+    }
+
+    public void setKeyField(JTextField keyField) {
+        this.keyField = keyField;
+    }
+
+    public JTextArea getOutputField() {
+        return outputField;
+    }
+
+    public void setOutputField(JTextArea outputField) {
+        this.outputField = outputField;
+    }
+
+    public JLabel getOutputLabel() {
+        return outputLabel;
+    }
+
+    public void setOutputLabel(JLabel outputLabel) {
+        this.outputLabel = outputLabel;
+    }
+
+    public JRadioButton getRadioDecrypt() {
+        return radioDecrypt;
+    }
+
+    public void setRadioDecrypt(JRadioButton radioDecrypt) {
+        this.radioDecrypt = radioDecrypt;
+    }
+
+    public JRadioButton getRadioEncrypt() {
+        return radioEncrypt;
+    }
+
+    public void setRadioEncrypt(JRadioButton radioEncrypt) {
+        this.radioEncrypt = radioEncrypt;
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCopy;
