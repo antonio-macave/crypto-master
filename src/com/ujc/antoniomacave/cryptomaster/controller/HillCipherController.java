@@ -6,6 +6,11 @@
 package com.ujc.antoniomacave.cryptomaster.controller;
 
 import com.ujc.antoniomacave.cryptomaster.view.HillForm;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -15,8 +20,23 @@ public class HillCipherController {
     
     private HillForm hillFormView;
     
+    private JLabel inputLabel;
+    private JLabel outputLabel;
+    private JTextField keyField;
+    private JTextArea inputField;
+    private JTextArea outputField;
+    private JRadioButton radioEncrypt;
+    private JRadioButton radioDecrypt;
+    private JButton btnEncypt;
+    private JButton btnCopy;
+    
     public HillCipherController(HillForm hillFormView) {
         this.hillFormView = hillFormView;
+        initComps(hillFormView);
+    }
+    
+    private void initComps(HillForm form) {
+        
     }
     
 }
