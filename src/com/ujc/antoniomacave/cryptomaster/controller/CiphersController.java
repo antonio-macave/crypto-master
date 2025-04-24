@@ -8,6 +8,7 @@ package com.ujc.antoniomacave.cryptomaster.controller;
 import com.ujc.antoniomacave.cryptomaster.util.Identifier;
 import com.ujc.antoniomacave.cryptomaster.view.CifraCesarForm;
 import com.ujc.antoniomacave.cryptomaster.view.CiphersForm;
+import com.ujc.antoniomacave.cryptomaster.view.HillForm;
 import com.ujc.antoniomacave.cryptomaster.view.VigenereForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -51,12 +52,18 @@ public class CiphersController {
         ciphersFormView.dispose();
     }
     
+    private void openHillCipherForm() {
+        HillForm hillForm = new HillForm(Identifier.HILL_CIPHER);
+        HillCipherController hillController = new HillCipherController(hillForm);
+        ciphersFormView.dispose();
+    }
+    
     private final ActionListener actionListener = (ActionEvent e) -> {
         if (ciphersFormView != null) {
             if (btnCeaser.getActionCommand().equals(e.getActionCommand())) {
                 openCeaserCipherForm();
             } else if (e.getActionCommand().equals(btnHill.getActionCommand())) {
-                
+                openHillCipherForm();
             } else if (e.getActionCommand().equals(btnVigenere.getActionCommand())) {
                 openVigenereCipherForm();   
             }
