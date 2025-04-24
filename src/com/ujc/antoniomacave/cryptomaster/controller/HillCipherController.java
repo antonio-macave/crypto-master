@@ -6,6 +6,7 @@
 package com.ujc.antoniomacave.cryptomaster.controller;
 
 import com.ujc.antoniomacave.cryptomaster.util.Identifier;
+import com.ujc.antoniomacave.cryptomaster.util.StringUtils;
 import com.ujc.antoniomacave.cryptomaster.view.CiphersForm;
 import com.ujc.antoniomacave.cryptomaster.view.HillForm;
 import java.awt.event.ActionEvent;
@@ -55,6 +56,8 @@ public class HillCipherController {
         btnEncypt = form.getBtnEncrypt();
         btnCopy = form.getBtnCopy();
         
+        btnCopy.addActionListener(copyButtonListener);
+        
         outputField.getDocument().addDocumentListener(documentListener);
         
         form.addWindowListener(windowListener);
@@ -84,6 +87,10 @@ public class HillCipherController {
            }
     };
     
+    private final ActionListener copyButtonListener = (ActionEvent e)-> {
+        String text = outputField.getText();
+        StringUtils.copyText(text);
+    };
     
     private final DocumentListener documentListener = new DocumentListener() {
         
