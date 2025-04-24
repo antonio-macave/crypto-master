@@ -5,9 +5,13 @@
  */
 package com.ujc.antoniomacave.cryptomaster.controller;
 
+import com.ujc.antoniomacave.cryptomaster.util.Identifier;
+import com.ujc.antoniomacave.cryptomaster.view.CiphersForm;
 import com.ujc.antoniomacave.cryptomaster.view.HillForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
@@ -20,7 +24,7 @@ import javax.swing.JTextField;
  */
 public class HillCipherController {
     
-    private HillForm hillFormView;
+    private final HillForm hillFormView;
     private Integer actionMode = null; //0 = Encryption Mode; 1 = Decryption Mode
     
     private JLabel inputLabel;
@@ -49,6 +53,7 @@ public class HillCipherController {
         btnEncypt = form.getBtnEncrypt();
         btnCopy = form.getBtnCopy();
         
+        form.addWindowListener(windowListener);
         radioEncrypt.addActionListener(radioButtonsListener);
         radioDecrypt.addActionListener(radioButtonsListener);
     }
@@ -73,6 +78,45 @@ public class HillCipherController {
            } else if (e.getActionCommand().equals(radioDecrypt.getActionCommand())) {
                setDecyptionMode();
            }
+    };
+    
+    private final WindowListener windowListener = new WindowListener() {
+
+        @Override
+        public void windowOpened(WindowEvent e) {
+            
+        }
+
+        @Override
+        public void windowClosing(WindowEvent e) {
+            
+        }
+
+        @Override
+        public void windowClosed(WindowEvent e) {
+            CiphersForm ciphersForm = new CiphersForm(Identifier.APP_TITLE);
+            CiphersController ciphersController = new CiphersController(ciphersForm);
+        }
+
+        @Override
+        public void windowIconified(WindowEvent e) {
+            
+        }
+
+        @Override
+        public void windowDeiconified(WindowEvent e) {
+            
+        }
+
+        @Override
+        public void windowActivated(WindowEvent e) {
+            
+        }
+
+        @Override
+        public void windowDeactivated(WindowEvent e) {
+            
+        }
     };
     
 }
