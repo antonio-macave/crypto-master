@@ -17,6 +17,8 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -53,6 +55,8 @@ public class HillCipherController {
         btnEncypt = form.getBtnEncrypt();
         btnCopy = form.getBtnCopy();
         
+        outputField.getDocument().addDocumentListener(documentListener);
+        
         form.addWindowListener(windowListener);
         radioEncrypt.addActionListener(radioButtonsListener);
         radioDecrypt.addActionListener(radioButtonsListener);
@@ -78,6 +82,29 @@ public class HillCipherController {
            } else if (e.getActionCommand().equals(radioDecrypt.getActionCommand())) {
                setDecyptionMode();
            }
+    };
+    
+    
+    private final DocumentListener documentListener = new DocumentListener() {
+        
+        private void updateCopyButtonState() {
+            btnCopy.setEnabled(!outputField.getText().trim().isEmpty());
+        }
+
+        @Override
+        public void insertUpdate(DocumentEvent e) {
+            updateCopyButtonState();
+        }
+
+        @Override
+        public void removeUpdate(DocumentEvent e) {
+            updateCopyButtonState();
+        }
+
+        @Override
+        public void changedUpdate(DocumentEvent e) {
+            updateCopyButtonState();
+        }
     };
     
     private final WindowListener windowListener = new WindowListener() {
