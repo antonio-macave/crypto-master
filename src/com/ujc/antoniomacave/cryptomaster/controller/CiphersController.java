@@ -19,6 +19,7 @@ import javax.swing.JButton;
  * @author Macave
  */
 public class CiphersController {
+    
     private CiphersForm ciphersFormView;
     private JButton btnCeaser;
     private JButton btnHill;
@@ -40,32 +41,34 @@ public class CiphersController {
         btnVigenere.addActionListener(actionListener);
     }
     
-    private void openVigenereCipherForm() {
-        VigenereForm vigenereForm = new VigenereForm();
-        VigenereCipherController vigenereCipherController = new VigenereCipherController(vigenereForm);
-        ciphersFormView.dispose();
-    }
-    
-    private void openCeaserCipherForm() {
-        CifraCesarForm cifraCesar = new CifraCesarForm(Identifier.CEASER_CIPHER);
-        CeaserCipherController cipherController = new CeaserCipherController(cifraCesar);
-        ciphersFormView.dispose();
-    }
-    
-    private void openHillCipherForm() {
-        HillForm hillForm = new HillForm(Identifier.HILL_CIPHER);
-        HillCipherController hillController = new HillCipherController(hillForm);
+    private void openCipherWindow(String identifier) {
+        switch(identifier) {
+            case Identifier.CEASER_CIPHER:
+                CifraCesarForm cifraCesar = new CifraCesarForm(Identifier.CEASER_CIPHER);
+                CeaserCipherController cipherController = new CeaserCipherController(cifraCesar);
+                break;
+                
+            case Identifier.HILL_CIPHER:
+                HillForm hillForm = new HillForm(Identifier.HILL_CIPHER);
+                HillCipherController hillController = new HillCipherController(hillForm);
+                break;
+                
+            case Identifier.VIGENERE_CIPHER:
+                VigenereForm vigenereForm = new VigenereForm();
+                VigenereCipherController vigenereCipherController = new VigenereCipherController(vigenereForm);
+                break;
+        }
         ciphersFormView.dispose();
     }
     
     private final ActionListener actionListener = (ActionEvent e) -> {
         if (ciphersFormView != null) {
             if (btnCeaser.getActionCommand().equals(e.getActionCommand())) {
-                openCeaserCipherForm();
+                openCipherWindow(Identifier.CEASER_CIPHER);
             } else if (e.getActionCommand().equals(btnHill.getActionCommand())) {
-                openHillCipherForm();
+                openCipherWindow(Identifier.HILL_CIPHER);
             } else if (e.getActionCommand().equals(btnVigenere.getActionCommand())) {
-                openVigenereCipherForm();   
+                openCipherWindow(Identifier.VIGENERE_CIPHER);
             }
         }
     };
