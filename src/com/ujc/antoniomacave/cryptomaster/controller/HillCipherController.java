@@ -15,6 +15,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -56,6 +57,7 @@ public class HillCipherController {
         btnEncypt = form.getBtnEncrypt();
         btnCopy = form.getBtnCopy();
         
+        btnEncypt.addActionListener(encyptButtonListener);
         btnCopy.addActionListener(copyButtonListener);
         
         outputField.getDocument().addDocumentListener(documentListener);
@@ -79,12 +81,41 @@ public class HillCipherController {
         btnEncypt.setText("Decriptar");
     }
     
+    private boolean isKeyValid(String key) {
+        if (!key.trim().isEmpty()) {
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(hillFormView, "Por favor, insira uma chave.");
+            return false;
+        }
+    }
+    
+    private boolean hasInputContent(String content) {
+        if (!content.trim().isEmpty()) {
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(hillFormView, "Por favor, insira o conteúdo que deseja cifrar/decifrar.");
+            return false;
+        }
+    }
+    
     private final ActionListener radioButtonsListener = (ActionEvent e) -> {
            if (e.getActionCommand().equals(radioEncrypt.getActionCommand())) {
                setEncyptionMode();
            } else if (e.getActionCommand().equals(radioDecrypt.getActionCommand())) {
                setDecyptionMode();
            }
+    };
+    
+    
+    private final ActionListener encyptButtonListener = (ActionEvent) -> {
+        String key = keyField.getText();
+        String inputContent = inputField.getText();
+        if(hasInputContent(inputContent)) {
+            if (isKeyValid(key)) {
+                
+            }
+        } 
     };
     
     private final ActionListener copyButtonListener = (ActionEvent e)-> {
