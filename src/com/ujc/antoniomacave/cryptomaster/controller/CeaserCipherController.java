@@ -5,6 +5,7 @@
  */
 package com.ujc.antoniomacave.cryptomaster.controller;
 
+import com.ujc.antoniomacave.cryptomaster.util.CeaserCipherUtils;
 import com.ujc.antoniomacave.cryptomaster.util.Identifier;
 import com.ujc.antoniomacave.cryptomaster.util.StringUtils;
 import com.ujc.antoniomacave.cryptomaster.view.CifraCesarForm;
@@ -49,9 +50,10 @@ public class CeaserCipherController {
         cifraCesarView.addWindowListener(windowListener);
         copyButton = cifraCesarView.getBtnCopy();
         copyButton.addActionListener((ActionEvent e) -> {
-            String text = inputField.getText();
+            String text = outputField.getText();
             copyText(text);
         });
+        cifraCesarView.getBtnEncrypt().addActionListener(encryptListener);
         keyTextArea = cifraCesarView.getKey();
         encryptRadio = cifraCesarView.getRadioEncypt();
         decryptRadio = cifraCesarView.getRadioDecrypt();
@@ -60,7 +62,6 @@ public class CeaserCipherController {
         outputField.getDocument().addDocumentListener(docListener);
         encryptRadio.addActionListener(radioListener);
         decryptRadio.addActionListener(radioListener);
-        cifraCesarView.getBtnEncrypt().addActionListener(encryptListener);
     }
     
     private void copyText(String text) {
@@ -111,8 +112,19 @@ public class CeaserCipherController {
     }
     
     private final ActionListener encryptListener = (ActionEvent e) -> {
+        String key = keyTextArea.getText();
+        String input = inputField.getText();
         if (isAnyModeSelected()) {
-            isKeyValid(keyTextArea.getText());
+            if (isKeyValid(key)) {
+                int shift = Integer.parseInt(key.trim());
+                if (actionMode == 0) { //ENCRYPT MODE
+                    String cipherText = CeaserCipherUtils.encrypt(input, shift);
+                    outputField.setText(cipherText);   
+                } else if (actionMode == 1) { //DECRYPT MODE
+                    String plainText = CeaserCipherUtils.decrypt(input, shift);
+                    outputField.setText(plainText);
+                }
+            }
         }
     };
     
