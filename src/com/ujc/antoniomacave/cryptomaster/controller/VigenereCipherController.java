@@ -7,6 +7,7 @@ package com.ujc.antoniomacave.cryptomaster.controller;
 
 import com.ujc.antoniomacave.cryptomaster.util.Identifier;
 import com.ujc.antoniomacave.cryptomaster.util.StringUtils;
+import com.ujc.antoniomacave.cryptomaster.util.VigenereCipherUtils;
 import com.ujc.antoniomacave.cryptomaster.view.CiphersForm;
 import com.ujc.antoniomacave.cryptomaster.view.VigenereForm;
 import java.awt.event.ActionEvent;
@@ -88,14 +89,20 @@ public class VigenereCipherController {
     }
     
     private final ActionListener encyptListener = (ActionEvent e) -> {
-        String text = keyField.getText();
+        String key = keyField.getText();
         if (isAnyModeSelected()) {
-            if (isKeyValid(text)) {
-            String content = inputField.getText();
-            if (hasInputContent(content)) {
-                
+            if (isKeyValid(key)) {
+                String content = inputField.getText();
+                if (hasInputContent(content)) {
+                    if (actionMode == 0) { //ENCYPT MODE
+                        String cipherText = VigenereCipherUtils.encrypt(content, key);
+                        outputField.setText(cipherText);
+                    } else if (actionMode == 1) { //DECRYPT MODE
+                        String plainText = VigenereCipherUtils.decrypt(content, key);
+                        outputField.setText(plainText);
+                    }
+                }
             }
-        }
         }
     };
     
