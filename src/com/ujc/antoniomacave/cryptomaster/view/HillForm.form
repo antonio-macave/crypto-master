@@ -112,7 +112,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="keyField">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Matriz 2x2 ou 3x3."/>
+        <Property name="toolTipText" type="java.lang.String" value="Formato: a,b;y,z"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="inputLabel">

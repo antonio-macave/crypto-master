@@ -71,7 +71,7 @@ public class HillForm extends javax.swing.JFrame {
 
         jLabel2.setText("Chave");
 
-        keyField.setToolTipText("Matriz 2x2 ou 3x3.");
+        keyField.setToolTipText("Formato: a,b;y,z");
 
         inputLabel.setText("Texto plano");
 
