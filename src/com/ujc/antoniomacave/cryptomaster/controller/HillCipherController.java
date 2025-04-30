@@ -5,6 +5,7 @@
  */
 package com.ujc.antoniomacave.cryptomaster.controller;
 
+import com.ujc.antoniomacave.cryptomaster.util.HillCipherUtils;
 import com.ujc.antoniomacave.cryptomaster.util.Identifier;
 import com.ujc.antoniomacave.cryptomaster.util.StringUtils;
 import com.ujc.antoniomacave.cryptomaster.view.CiphersForm;
@@ -113,7 +114,15 @@ public class HillCipherController {
         String inputContent = inputField.getText();
         if(hasInputContent(inputContent)) {
             if (isKeyValid(key)) {
-                
+                if (actionMode == 0) { //ENCRYPT MODE
+                    int[][] keyMatrix = HillCipherUtils.parseMatrixFromInput(key);
+                    String cipherText = HillCipherUtils.encrypt(inputContent, keyMatrix);
+                    outputField.setText(cipherText);
+                } else if (actionMode == 1) { //DECRYPT MODE
+                    int[][] keyMatrix = HillCipherUtils.parseMatrixFromInput(key);
+                    String plainText = HillCipherUtils.decrypt(inputContent, keyMatrix);
+                    outputField.setText(plainText);
+                }
             }
         } 
     };
