@@ -5,6 +5,8 @@
  */
 package com.ujc.antoniomacave.cryptomaster.util;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Macave
@@ -35,6 +37,7 @@ public class HillCipherUtils {
         if (det < 0) det += 26;
 
         if (gcd(det, 26) != 1) {
+            JOptionPane.showMessageDialog(null, "Matriz-chave inválida: Impossível deterinar o módulo de 26.", "Erro na matriz", JOptionPane.ERROR_MESSAGE);
             throw new IllegalArgumentException("Invalid key matrix: determinant not invertible modulo 26.");
         }
     }
@@ -87,6 +90,8 @@ public class HillCipherUtils {
         for (int x = 1; x < m; x++) {
             if ((a * x) % m == 1) return x;
         }
+        
+        JOptionPane.showMessageDialog(null, "Nenhum módulo inverso encontrado.", "Erro na matriz", JOptionPane.ERROR_MESSAGE);
         throw new ArithmeticException("No modular inverse found.");
     }
 
@@ -97,6 +102,7 @@ public class HillCipherUtils {
     public static int[][] parseMatrixFromInput(String input) {
         String[] rows = input.trim().split(";");
         if (rows.length != 2) {
+            JOptionPane.showMessageDialog(null, "Cada linha na deve conter 2 valores.", "Erro na matriz", JOptionPane.ERROR_MESSAGE);
             throw new IllegalArgumentException("Matrix must have 2 rows.");
         }
 
@@ -104,6 +110,7 @@ public class HillCipherUtils {
         for (int i = 0; i < 2; i++) {
             String[] values = rows[i].trim().split(",");
             if (values.length != 2) {
+                JOptionPane.showMessageDialog(null, "Cada linha deve conter 2 valores.", "Erro na matriz", JOptionPane.ERROR_MESSAGE);
                 throw new IllegalArgumentException("Each row must have 2 values.");
             }
 
