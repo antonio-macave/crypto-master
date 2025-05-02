@@ -88,6 +88,7 @@ public class VigenereCipherController {
     
     private void copyText(String text) {
         StringUtils.copyText(text);
+        JOptionPane.showMessageDialog(vigenereFormView, "Texto copiado para a área de transferência!", "", JOptionPane.INFORMATION_MESSAGE);
     }
     
     private final ActionListener encyptListener = (ActionEvent e) -> {

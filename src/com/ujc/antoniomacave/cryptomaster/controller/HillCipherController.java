@@ -29,7 +29,7 @@ import javax.swing.event.DocumentListener;
  */
 public class HillCipherController {
     
-    private final HillForm hillFormView;
+    private HillForm hillFormView;
     private Integer actionMode = null; //0 = Encryption Mode; 1 = Decryption Mode
     
     private JLabel inputLabel;
@@ -132,6 +132,7 @@ public class HillCipherController {
     private final ActionListener copyButtonListener = (ActionEvent e)-> {
         String text = outputField.getText();
         StringUtils.copyText(text);
+        JOptionPane.showMessageDialog(hillFormView, "Texto copiado para a área de transferência!", "", JOptionPane.INFORMATION_MESSAGE);
     };
     
     private final DocumentListener documentListener = new DocumentListener() {

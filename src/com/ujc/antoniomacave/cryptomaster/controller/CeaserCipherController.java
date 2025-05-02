@@ -66,6 +66,7 @@ public class CeaserCipherController {
     
     private void copyText(String text) {
         StringUtils.copyText(text);
+        JOptionPane.showMessageDialog(cifraCesarView, "Texto copiado para a área de transferência!", "", JOptionPane.INFORMATION_MESSAGE);
     }
     
     private boolean isKeyValid(String text) throws NumberFormatException {
