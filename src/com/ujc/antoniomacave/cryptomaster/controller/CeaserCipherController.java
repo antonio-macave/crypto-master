@@ -76,14 +76,14 @@ public class CeaserCipherController {
                     key = Integer.parseInt(text.trim());
                     return true;
                 } else {
-                    JOptionPane.showMessageDialog(this.cifraCesarView, "A chave deve ser entre 0-26.");
+                    JOptionPane.showMessageDialog(this.cifraCesarView, "A chave deve ser entre 0-26.","Chave", JOptionPane.ERROR_MESSAGE);
                 }
             } else {
-                JOptionPane.showMessageDialog(this.cifraCesarView, "Insira a chave.");
+                JOptionPane.showMessageDialog(this.cifraCesarView, "Insira a chave.", "Chave", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this.cifraCesarView, "A chave deve ser composta apenas por números.");
+            JOptionPane.showMessageDialog(this.cifraCesarView, "A chave deve ser composta apenas por números.","Chave", JOptionPane.ERROR_MESSAGE);
         }
         return false;
     }
@@ -112,11 +112,11 @@ public class CeaserCipherController {
     }
     
     private final ActionListener encryptListener = (ActionEvent e) -> {
-        String key = keyTextArea.getText();
+        String keyText = keyTextArea.getText();
         String input = inputField.getText();
         if (isAnyModeSelected()) {
-            if (isKeyValid(key)) {
-                int shift = Integer.parseInt(key.trim());
+            if (isKeyValid(keyText)) {
+                int shift = Integer.parseInt(keyText.trim());
                 if (actionMode == 0) { //ENCRYPT MODE
                     String cipherText = CeaserCipherUtils.encrypt(input, shift);
                     outputField.setText(cipherText);   
