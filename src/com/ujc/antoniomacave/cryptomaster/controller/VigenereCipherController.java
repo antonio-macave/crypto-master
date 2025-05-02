@@ -75,6 +75,7 @@ public class VigenereCipherController {
         inputLabel.setText("Texto plano");
         outputLabel.setText("Texto cifrado");
         btnEncrypt.setText("Encriptar");
+        outputField.setText("");
     }
     
     private void setDecryptMode() {
@@ -82,6 +83,7 @@ public class VigenereCipherController {
         inputLabel.setText("Texto cifrado");
         outputLabel.setText("Texto plano");
         btnEncrypt.setText("Decriptar");
+        outputField.setText("");
     }
     
     private void copyText(String text) {

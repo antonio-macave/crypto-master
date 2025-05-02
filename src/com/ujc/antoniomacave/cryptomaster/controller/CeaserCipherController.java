@@ -97,6 +97,7 @@ public class CeaserCipherController {
         btnEncrypt.setText("Encriptar");
         plainText.setText("Texto plano");
         cipherText.setText("Texto cifrado");
+        outputField.setText("");
    
     }
     
@@ -109,6 +110,7 @@ public class CeaserCipherController {
         btnEncrypt.setText("Decriptar");
         plainText.setText("Texto cifrado");
         cipherText.setText("Texto plano");
+        outputField.setText("");
     }
     
     private final ActionListener encryptListener = (ActionEvent e) -> {

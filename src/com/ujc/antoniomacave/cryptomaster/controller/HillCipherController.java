@@ -73,6 +73,7 @@ public class HillCipherController {
         inputLabel.setText("Texto plano");
         outputLabel.setText("Texto cifrado");
         btnEncypt.setText("Encriptar");
+        outputField.setText("");
     }
     
     private void setDecyptionMode() {
@@ -80,6 +81,7 @@ public class HillCipherController {
         inputLabel.setText("Texto cifrado");
         outputLabel.setText("Texto plano");
         btnEncypt.setText("Decriptar");
+        outputField.setText("");
     }
     
     private boolean isKeyValid(String key) {
