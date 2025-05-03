@@ -21,7 +21,8 @@ Através da interação com a aplicação, os utlilizadores podem observar como 
 
 - Java SE 8+
 - Java Swing para a interface gráfica
-- NetBeans como ambiente de desenvolvimento (estrutura de projeto baseada no NetBeans)
+- Flatlaf-3.5.4 interface gráfica mais amigável
+- NetBeans como ambiente de desenvolvimento (estructura de projeto baseada no NetBeans)
 
 ## Como Executar
 
