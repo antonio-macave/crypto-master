@@ -129,17 +129,26 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btnVigenereCipher">
           <Properties>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;&lt;html&gt;\n&quot; +&#xa;&quot;A cifra de Vigen&#xe8;re melhora a de C&#xe9;sar usando uma palavra-chave\n&quot; +&#xa;&quot;&lt;br&gt;para definir os deslocamentos.\n&quot; +&#xa;&quot;&lt;br&gt;Cada letra da palavra-chave define quantas posi&#xe7;&#xf5;es cada letra \n&quot; +&#xa;&quot;&lt;br&gt;do texto ser&#xe1; deslocada, e isso vai se repetindo. Por exemplo, \n&quot; +&#xa;&quot;&lt;br&gt;se a chave for \&quot;LIM&#xc3;O\&quot;, cada letra do texto vai ser cifrada com\n&quot; +&#xa;&quot;&lt;br&gt;base no valor da letra correspondente da chave. Por isso, ela \n&quot; +&#xa;&quot;&lt;br&gt;&#xe9; mais resistente a ataques por an&#xe1;lise de frequ&#xea;ncia, embora\n&quot; +&#xa;&quot;&lt;br&gt;n&#xe3;o seja invulner&#xe1;vel.\n&quot; +&#xa;&quot;&lt;/html&gt;.&quot;" type="code"/>
+            </Property>
             <Property name="label" type="java.lang.String" value="Vigen&#xe8;re"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnCeaserCipher">
           <Properties>
             <Property name="text" type="java.lang.String" value="C&#xe9;sar"/>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;&lt;html&gt;A cifra de C&#xe9;sar &#xe9; uma das t&#xe9;cnicas de criptografia mais &quot;&#xa;    + &quot;&lt;br&gt;antigas e simples.&quot;&#xa;    + &quot;&lt;br&gt;Consiste em deslocar cada letra do &quot;&#xa;    + &quot;&lt;br&gt;texto original um certo n&#xfa;mero de posi&#xe7;&#xf5;es &quot;&#xa;    + &quot;&lt;br&gt;no alfabeto. Por exemplo, com um deslocamento &quot;&#xa;    + &quot;&lt;br&gt;de 3, a letra A vira D, B vira E, e assim por &quot;&#xa;    + &quot;&lt;br&gt;diante. &#xc9; como se fosse um alfabeto girat&#xf3;rio. &quot;&#xa;    + &quot;&lt;br&gt;Apesar de f&#xe1;cil de entender e implementar, &#xe9; tamb&#xe9;m &quot;&#xa;    + &quot;&lt;br&gt;muito f&#xe1;cil de quebrar com for&#xe7;a bruta ou an&#xe1;lise de &quot;&#xa;    + &quot;&lt;br&gt;frequ&#xea;ncia.&lt;/html&gt;&quot;" type="code"/>
+            </Property>
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnHillCipher">
           <Properties>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;&lt;html&gt;\n&quot; +&#xa;&quot;A cifra de Hill &#xe9; mais matem&#xe1;tica. Usa &#xe1;lgebra linear\n&quot; +&#xa;&quot;&lt;br&gt;para cifrar blocos de letras com matrizes. Basicamente, \n&quot; +&#xa;&quot;&lt;br&gt;pega um grupo de letras (ex: 2 ou 3 de cada vez), \n&quot; +&#xa;&quot;&lt;br&gt;converte em n&#xfa;meros, multiplica por uma matriz-chave, \n&quot; +&#xa;&quot;&lt;br&gt;e o resultado &#xe9; convertido de volta em letras. Por ser \n&quot; +&#xa;&quot;&lt;br&gt;baseada em matrizes, ela &#xe9; mais segura do que as cifras\n&quot; +&#xa;&quot;&lt;br&gt;de C&#xe9;sar e Vigen&#xe8;re, mas tamb&#xe9;m mais complexa de \n&quot; +&#xa;&quot;&lt;br&gt;implementar, porque exige que a matriz-chave seja\n&quot; +&#xa;&quot;&lt;br&gt;invert&#xed;vel no m&#xf3;dulo do alfabeto.\n&quot; +&#xa;&quot;&lt;/html&gt;&quot;" type="code"/>
+            </Property>
             <Property name="label" type="java.lang.String" value="Hill"/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
               <Insets value="[2, 30, 2, 30]"/>

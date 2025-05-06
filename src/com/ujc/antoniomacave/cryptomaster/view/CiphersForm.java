@@ -58,11 +58,42 @@ public class CiphersForm extends javax.swing.JFrame {
 
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true));
 
+        btnVigenereCipher.setToolTipText("<html>\n" +
+            "A cifra de Vigenère melhora a de César usando uma palavra-chave\n" +
+            "<br>para definir os deslocamentos.\n" +
+            "<br>Cada letra da palavra-chave define quantas posições cada letra \n" +
+            "<br>do texto será deslocada, e isso vai se repetindo. Por exemplo, \n" +
+            "<br>se a chave for \"LIMÃO\", cada letra do texto vai ser cifrada com\n" +
+            "<br>base no valor da letra correspondente da chave. Por isso, ela \n" +
+            "<br>é mais resistente a ataques por análise de frequência, embora\n" +
+            "<br>não seja invulnerável.\n" +
+            "</html>.");
         btnVigenereCipher.setLabel("Vigenère");
 
         btnCeaserCipher.setText("César");
+        btnCeaserCipher.setToolTipText("<html>A cifra de César é uma das técnicas de criptografia mais "
+            + "<br>antigas e simples."
+            + "<br>Consiste em deslocar cada letra do "
+            + "<br>texto original um certo número de posições "
+            + "<br>no alfabeto. Por exemplo, com um deslocamento "
+            + "<br>de 3, a letra A vira D, B vira E, e assim por "
+            + "<br>diante. É como se fosse um alfabeto giratório. "
+            + "<br>Apesar de fácil de entender e implementar, é também "
+            + "<br>muito fácil de quebrar com força bruta ou análise de "
+            + "<br>frequência.</html>");
         btnCeaserCipher.setRequestFocusEnabled(false);
 
+        btnHillCipher.setToolTipText("<html>\n" +
+            "A cifra de Hill é mais matemática. Usa álgebra linear\n" +
+            "<br>para cifrar blocos de letras com matrizes. Basicamente, \n" +
+            "<br>pega um grupo de letras (ex: 2 ou 3 de cada vez), \n" +
+            "<br>converte em números, multiplica por uma matriz-chave, \n" +
+            "<br>e o resultado é convertido de volta em letras. Por ser \n" +
+            "<br>baseada em matrizes, ela é mais segura do que as cifras\n" +
+            "<br>de César e Vigenère, mas também mais complexa de \n" +
+            "<br>implementar, porque exige que a matriz-chave seja\n" +
+            "<br>invertível no módulo do alfabeto.\n" +
+            "</html>");
         btnHillCipher.setLabel("Hill");
         btnHillCipher.setMargin(new java.awt.Insets(2, 30, 2, 30));
 
