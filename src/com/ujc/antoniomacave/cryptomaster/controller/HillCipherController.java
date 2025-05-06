@@ -116,14 +116,25 @@ public class HillCipherController {
         String inputContent = inputField.getText();
         if(hasInputContent(inputContent)) {
             if (isKeyValid(key)) {
+                
+                int size = (int) Math.sqrt(key.trim().split("\\s+").length);
+                int[][] keyMatrix = new int[size][size];
+                String[] nums = key.trim().split("\\s+");
+
+                for (int i = 0; i < size * size; i++) {
+                    keyMatrix[i / size][i % size] = Integer.parseInt(nums[i]);
+                }
+                
                 if (actionMode == 0) { //ENCRYPT MODE
-                    int[][] keyMatrix = HillCipherUtils.parseMatrixFromInput(key);
+                    
                     String cipherText = HillCipherUtils.encrypt(inputContent, keyMatrix);
                     outputField.setText(cipherText);
+                    
                 } else if (actionMode == 1) { //DECRYPT MODE
-                    int[][] keyMatrix = HillCipherUtils.parseMatrixFromInput(key);
+                    
                     String plainText = HillCipherUtils.decrypt(inputContent, keyMatrix);
                     outputField.setText(plainText);
+                    
                 }
             }
         } 
