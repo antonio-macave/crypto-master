@@ -110,12 +110,23 @@ public class HillCipherController {
            }
     };
     
+    private boolean isAnyModeSelected() {
+        if (actionMode != null) {
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(hillFormView, "Por favor, selecione o que deseja fazer.");
+            return false;
+        }
+    }
+    
     
     private final ActionListener encyptButtonListener = (ActionEvent) -> {
         String key = keyField.getText();
         String inputContent = inputField.getText();
         if(hasInputContent(inputContent)) {
-            if (isKeyValid(key)) {
+            
+            if (isAnyModeSelected()) {
+                if (isKeyValid(key)) {
                 
                 int size = (int) Math.sqrt(key.trim().split("\\s+").length);
                 int[][] keyMatrix = new int[size][size];
@@ -136,6 +147,7 @@ public class HillCipherController {
                     outputField.setText(plainText);
                     
                 }
+            }
             }
         } 
     };
