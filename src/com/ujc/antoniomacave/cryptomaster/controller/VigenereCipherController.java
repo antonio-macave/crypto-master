@@ -7,6 +7,7 @@ package com.ujc.antoniomacave.cryptomaster.controller;
 
 import com.ujc.antoniomacave.cryptomaster.util.Identifier;
 import com.ujc.antoniomacave.cryptomaster.util.StringUtils;
+import com.ujc.antoniomacave.cryptomaster.util.UiUtils;
 import com.ujc.antoniomacave.cryptomaster.util.VigenereCipherUtils;
 import com.ujc.antoniomacave.cryptomaster.view.CiphersForm;
 import com.ujc.antoniomacave.cryptomaster.view.VigenereForm;
@@ -72,18 +73,12 @@ public class VigenereCipherController {
     
     private void setEncryptMode() {
         actionMode = 0;
-        inputLabel.setText("Texto plano");
-        outputLabel.setText("Texto cifrado");
-        btnEncrypt.setText("Encriptar");
-        outputField.setText("");
+        UiUtils.setActionMode(true, btnEncrypt, inputLabel, outputLabel, outputField);
     }
     
     private void setDecryptMode() {
         actionMode = 1;
-        inputLabel.setText("Texto cifrado");
-        outputLabel.setText("Texto plano");
-        btnEncrypt.setText("Decriptar");
-        outputField.setText("");
+        UiUtils.setActionMode(false, btnEncrypt, inputLabel, outputLabel, outputField);
     }
     
     private void copyText(String text) {

@@ -8,6 +8,7 @@ package com.ujc.antoniomacave.cryptomaster.controller;
 import com.ujc.antoniomacave.cryptomaster.util.CeaserCipherUtils;
 import com.ujc.antoniomacave.cryptomaster.util.Identifier;
 import com.ujc.antoniomacave.cryptomaster.util.StringUtils;
+import com.ujc.antoniomacave.cryptomaster.util.UiUtils;
 import com.ujc.antoniomacave.cryptomaster.view.CifraCesarForm;
 import com.ujc.antoniomacave.cryptomaster.view.CiphersForm;
 import java.awt.event.ActionEvent;
@@ -40,6 +41,7 @@ public class CeaserCipherController {
     private JTextArea inputField;
     private JTextArea outputField;
     private JButton copyButton;
+    private JButton encryptButton;
     
     public CeaserCipherController(CifraCesarForm cifraCesarView) {
         this.cifraCesarView = cifraCesarView;
@@ -53,7 +55,8 @@ public class CeaserCipherController {
             String text = outputField.getText();
             copyText(text);
         });
-        cifraCesarView.getBtnEncrypt().addActionListener(encryptListener);
+        encryptButton = cifraCesarView.getBtnEncrypt();
+        encryptButton.addActionListener(encryptListener);
         keyTextArea = cifraCesarView.getKey();
         encryptRadio = cifraCesarView.getRadioEncypt();
         decryptRadio = cifraCesarView.getRadioDecrypt();
@@ -91,27 +94,17 @@ public class CeaserCipherController {
     
     private void enterEncryptMode() {
         actionMode = 0;
-        JButton btnEncrypt = cifraCesarView.getBtnEncrypt();
-        JLabel plainText = cifraCesarView.getPlainTexLabel();
-        JLabel cipherText = cifraCesarView.getLabelCipherText();
-        
-        btnEncrypt.setText("Encriptar");
-        plainText.setText("Texto plano");
-        cipherText.setText("Texto cifrado");
-        outputField.setText("");
-   
+    
+        JLabel inputLabel = cifraCesarView.getPlainTexLabel();
+        JLabel outputLabel = cifraCesarView.getLabelCipherText();
+        UiUtils.setActionMode(true, encryptButton, inputLabel, outputLabel, outputField);
     }
     
     private void enterDecryptMode() {
         actionMode = 1;
-        JButton btnEncrypt = cifraCesarView.getBtnEncrypt();
-        JLabel plainText = cifraCesarView.getPlainTexLabel();
-        JLabel cipherText = cifraCesarView.getLabelCipherText();
-        
-        btnEncrypt.setText("Decriptar");
-        plainText.setText("Texto cifrado");
-        cipherText.setText("Texto plano");
-        outputField.setText("");
+        JLabel inputLabel = cifraCesarView.getPlainTexLabel();
+        JLabel outputLabel = cifraCesarView.getLabelCipherText();
+        UiUtils.setActionMode(false, encryptButton, inputLabel, outputLabel, outputField);
     }
     
     private final ActionListener encryptListener = (ActionEvent e) -> {

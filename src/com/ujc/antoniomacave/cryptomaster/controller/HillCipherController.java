@@ -8,6 +8,7 @@ package com.ujc.antoniomacave.cryptomaster.controller;
 import com.ujc.antoniomacave.cryptomaster.util.HillCipherUtils;
 import com.ujc.antoniomacave.cryptomaster.util.Identifier;
 import com.ujc.antoniomacave.cryptomaster.util.StringUtils;
+import com.ujc.antoniomacave.cryptomaster.util.UiUtils;
 import com.ujc.antoniomacave.cryptomaster.view.CiphersForm;
 import com.ujc.antoniomacave.cryptomaster.view.HillForm;
 import java.awt.event.ActionEvent;
@@ -39,7 +40,7 @@ public class HillCipherController {
     private JTextArea outputField;
     private JRadioButton radioEncrypt;
     private JRadioButton radioDecrypt;
-    private JButton btnEncypt;
+    private JButton btnEncrypt;
     private JButton btnCopy;
     
     public HillCipherController(HillForm hillFormView) {
@@ -55,10 +56,10 @@ public class HillCipherController {
         outputField = form.getOutputField();
         radioEncrypt = form.getRadioEncrypt();
         radioDecrypt = form.getRadioDecrypt();
-        btnEncypt = form.getBtnEncrypt();
+        btnEncrypt = form.getBtnEncrypt();
         btnCopy = form.getBtnCopy();
         
-        btnEncypt.addActionListener(encyptButtonListener);
+        btnEncrypt.addActionListener(encyptButtonListener);
         btnCopy.addActionListener(copyButtonListener);
         
         outputField.getDocument().addDocumentListener(documentListener);
@@ -70,18 +71,12 @@ public class HillCipherController {
     
     private void setEncyptionMode() {
         actionMode = 0;
-        inputLabel.setText("Texto plano");
-        outputLabel.setText("Texto cifrado");
-        btnEncypt.setText("Encriptar");
-        outputField.setText("");
+        UiUtils.setActionMode(true, btnEncrypt, inputLabel, outputLabel, outputField);
     }
     
     private void setDecyptionMode() {
         actionMode = 1;
-        inputLabel.setText("Texto cifrado");
-        outputLabel.setText("Texto plano");
-        btnEncypt.setText("Decriptar");
-        outputField.setText("");
+        UiUtils.setActionMode(false, btnEncrypt, inputLabel, outputLabel, outputField);
     }
     
     private boolean isKeyValid(String key) {
