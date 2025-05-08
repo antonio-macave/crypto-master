@@ -17,13 +17,12 @@ public class UiUtils {
             button.setText("Encriptar");
             inputLabel.setText("Texto plano");
             outputLabel.setText("Texto cifrado");
-            outputField.setText("");
         } else {
             button.setText("Decriptar");
             inputLabel.setText("Texto cifrado");
             outputLabel.setText("Texto plano");
-            outputField.setText("");
         }
+        outputField.setText("");
     }
     
 }
