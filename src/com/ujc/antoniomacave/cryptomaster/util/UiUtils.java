@@ -1,7 +1,9 @@
 package com.ujc.antoniomacave.cryptomaster.util;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 /**
@@ -25,4 +27,16 @@ public class UiUtils {
         outputField.setText("");
     }
     
+    public static boolean isAnyActionModeSelected(JFrame frame, Integer actionMode) {
+        if (frame != null) {
+            if (actionMode != null) {
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(frame, "Por favor, selecione o que deseja fazer.");
+            return false;
+            }
+        } else {
+            return false;
+        }
+    }
 }
