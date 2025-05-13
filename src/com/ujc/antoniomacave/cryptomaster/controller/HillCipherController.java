@@ -104,23 +104,13 @@ public class HillCipherController {
                setDecyptionMode();
            }
     };
-    
-    private boolean isAnyModeSelected() {
-        if (actionMode != null) {
-            return true;
-        } else {
-            JOptionPane.showMessageDialog(hillFormView, "Por favor, selecione o que deseja fazer.");
-            return false;
-        }
-    }
-    
-    
+      
     private final ActionListener encyptButtonListener = (ActionEvent) -> {
         String key = keyField.getText();
         String inputContent = inputField.getText();
         if(hasInputContent(inputContent)) {
             
-            if (isAnyModeSelected()) {
+            if (UiUtils.isAnyActionModeSelected(hillFormView, actionMode)) {
                 if (isKeyValid(key)) {
                 
                 int size = (int) Math.sqrt(key.trim().split("\\s+").length);

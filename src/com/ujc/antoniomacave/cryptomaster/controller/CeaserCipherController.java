@@ -30,7 +30,7 @@ import javax.swing.event.DocumentListener;
  */
 public class CeaserCipherController {
     
-    private final CifraCesarForm cifraCesarView;
+    private CifraCesarForm cifraCesarView;
     private Integer actionMode = null; // 0 = Encrypt; 1 = Decrypt
     
     private int key;
@@ -110,7 +110,7 @@ public class CeaserCipherController {
     private final ActionListener encryptListener = (ActionEvent e) -> {
         String keyText = keyTextArea.getText();
         String input = inputField.getText();
-        if (isAnyModeSelected()) {
+        if (UiUtils.isAnyActionModeSelected(cifraCesarView, actionMode)) {
             if (isKeyValid(keyText)) {
                 int shift = Integer.parseInt(keyText.trim());
                 if (actionMode == 0) { //ENCRYPT MODE
@@ -123,15 +123,6 @@ public class CeaserCipherController {
             }
         }
     };
-    
-    private boolean isAnyModeSelected() {
-        if(actionMode != null) {
-            return true;
-        } else {
-            JOptionPane.showMessageDialog(cifraCesarView, "Por favor, selecione o que deseja fazer.");
-            return false;
-        }
-    }
     
     private final ActionListener radioListener = (ActionEvent e) -> {
         if (e.getActionCommand().equals(encryptRadio.getActionCommand())){

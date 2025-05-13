@@ -41,7 +41,7 @@ public class VigenereCipherController {
     private JRadioButton encryptRadio;
     private JRadioButton decryptRadio;
     
-    private final VigenereForm vigenereFormView;
+    private VigenereForm vigenereFormView;
     
     public VigenereCipherController(VigenereForm vigenereFormView) {
         this.vigenereFormView = vigenereFormView;
@@ -88,7 +88,7 @@ public class VigenereCipherController {
     
     private final ActionListener encyptListener = (ActionEvent e) -> {
         String key = keyField.getText();
-        if (isAnyModeSelected()) {
+        if (UiUtils.isAnyActionModeSelected(vigenereFormView, actionMode)) {
             if (isKeyValid(key)) {
                 String content = inputField.getText();
                 if (hasInputContent(content)) {
@@ -120,14 +120,6 @@ public class VigenereCipherController {
         return true;
     }
     
-    private boolean isAnyModeSelected() {
-        if(actionMode != null) {
-            return true;
-        } else {
-            JOptionPane.showMessageDialog(vigenereFormView, "Por favor, selecione o que deseja fazer.");
-            return false;
-        }
-    }
     
     private final ActionListener actionListener = (ActionEvent e) -> {
         if (e.getActionCommand().equals(encryptRadio.getActionCommand())) {
