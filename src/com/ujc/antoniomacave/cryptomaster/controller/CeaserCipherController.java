@@ -168,8 +168,7 @@ public class CeaserCipherController {
 
         @Override
         public void windowClosed(WindowEvent e) {
-            CiphersForm ciphersForm = new CiphersForm(Identifier.APP_TITLE);
-            CiphersController controller = new CiphersController(ciphersForm);
+            new CiphersController(new CiphersForm(Identifier.APP_TITLE));
         }
 
         @Override

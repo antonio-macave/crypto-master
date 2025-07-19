@@ -24,9 +24,9 @@ public class VigenereForm extends javax.swing.JFrame {
     /**
      * Creates new form VigenereForm
      */
-    public VigenereForm() {
+    public VigenereForm(String identifier) {
         initComponents();
-        startApp(Identifier.VIGENERE_CIPHER);
+        startApp(identifier);
     }
 
     private void startApp(String windowTitle) {
