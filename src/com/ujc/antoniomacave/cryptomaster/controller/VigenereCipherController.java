@@ -165,8 +165,7 @@ public class VigenereCipherController {
 
         @Override
         public void windowClosed(WindowEvent e) {
-            CiphersForm ciphersForm = new CiphersForm(Identifier.APP_TITLE);
-            CiphersController ciphersController = new CiphersController(ciphersForm);
+            new CiphersController(new CiphersForm(Identifier.APP_TITLE));
         }
 
         @Override

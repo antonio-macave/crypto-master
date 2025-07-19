@@ -44,18 +44,15 @@ public class CiphersController {
     private void openCipherWindow(String identifier) {
         switch(identifier) {
             case Identifier.CEASER_CIPHER:
-                CifraCesarForm cifraCesar = new CifraCesarForm(Identifier.CEASER_CIPHER);
-                CeaserCipherController cipherController = new CeaserCipherController(cifraCesar);
+                new CeaserCipherController(new CifraCesarForm(Identifier.CEASER_CIPHER));
                 break;
                 
             case Identifier.HILL_CIPHER:
-                HillForm hillForm = new HillForm(Identifier.HILL_CIPHER);
-                HillCipherController hillController = new HillCipherController(hillForm);
+                new HillCipherController(new HillForm(Identifier.HILL_CIPHER));
                 break;
                 
             case Identifier.VIGENERE_CIPHER:
-                VigenereForm vigenereForm = new VigenereForm();
-                VigenereCipherController vigenereCipherController = new VigenereCipherController(vigenereForm);
+                new VigenereCipherController(new VigenereForm(Identifier.VIGENERE_CIPHER));
                 break;
         }
         ciphersFormView.dispose();

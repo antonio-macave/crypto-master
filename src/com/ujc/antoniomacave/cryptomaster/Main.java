@@ -25,8 +25,7 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        CiphersForm ciphers = new CiphersForm(Identifier.APP_TITLE);
-        CiphersController ciphersController = new CiphersController(ciphers);
+        new CiphersController(new CiphersForm(Identifier.APP_TITLE));
     }
     
 }
