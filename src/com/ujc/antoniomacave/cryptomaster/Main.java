@@ -10,6 +10,7 @@ import com.ujc.antoniomacave.cryptomaster.controller.CiphersController;
 import com.ujc.antoniomacave.cryptomaster.util.Identifier;
 import com.ujc.antoniomacave.cryptomaster.view.CiphersForm;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -22,11 +23,10 @@ public class Main {
         try {
             UIManager.setLookAndFeel(new FlatLightLaf());
             UIManager.put("Button.arc", 20);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (UnsupportedLookAndFeelException exception) {
+            throw new RuntimeException("Error while setting up the look and feel.", exception);
         }
-        CiphersForm ciphers = new CiphersForm(Identifier.APP_TITLE);
-        CiphersController ciphersController = new CiphersController(ciphers);
+        new CiphersController(new CiphersForm(Identifier.APP_TITLE));
     }
     
 }
